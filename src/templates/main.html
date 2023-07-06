@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block head_title %} Quick Home {% endblock head_title %}</title>
+    {% include "head/css.html" %}
+    {% include "head/js.html" %}
+  </head>
+  <body>
+  {% block content %} {% endblock content %}
+  </body>
+</html>
