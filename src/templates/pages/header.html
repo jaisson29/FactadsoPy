@@ -1,9 +1,44 @@
 <header class="relative top-0 h-1/6 bg-slate-800">
-  <h2 class="text-amber-500 font-medium text-5xl">QuickSnack</h2>
-  <nav class="absolute bottom-0 flex justify-center w-full my-2">
-    <ul class="relative flex flex-row text-white divide-x-2 divide-amber-400">
-      <li><a class="item" href="/">Home</a></li>
-      <li><a class="item" href="/login">Sign in</a></li>
-    </ul>
-  </nav>
+  <section class="flex items-center h-1/2">
+    <div class="absolute left-0">
+      <h2 class="text-5xl font-medium leading-none text-amber-500">
+        <a class="align-middle" href="/">QuickSnack</a>
+      </h2>
+    </div>
+    <div class="absolute right-0 flex flex-row divide-x-2 divide-amber-500">
+      {% if user.is_authenticated %}
+      <div>
+        <button type="">
+          <a class="button" href="/logout">Log out</a>
+        </button>
+      </div>
+      {% else %}
+      <div>
+        <button type="">
+          <a class="button" href="/login">Sign in</a>
+        </button>
+      </div>
+      <div>
+        <button type="">
+          <a class="button" href="/register">Sign up</a>
+        </button>
+      </div>
+      {% endif %}
+      
+    </div>
+  </section>
+  <section class="relative grid w-full place-items-center h-1/2">
+    <nav class="flex justify-center w-full mx-auto">
+      <ul class="flex flex-row text-white">
+        <li class="li-item">
+          <a class="item item-active" href="/">Home</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="li-item">
+          <a class="item" href="/shop">Shop</a>
+        </li>    
+        {% endif %}
+      </ul>
+    </nav>
+  </section>
 </header>

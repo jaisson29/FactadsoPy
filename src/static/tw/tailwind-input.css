@@ -9,13 +9,78 @@ body {
   width: 100%;
 }
 
+@layer base{
+  
+}
+
+@layer components{
+  
+}
+
 @layer utilities {
-  .item {
-    @apply px-4 py-2 font-semibold rounded-t-3xl;
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #1e293b inset;
+    -webkit-text-fill-color: #f59e0b;
+    @apply text-amber-500;
   }
 
-  .button{
-    @apply bg-amber-500 text-slate-700 border-2 border-slate-700 hover:bg-slate-700 hover:border-2 hover:border-amber-500 hover:text-amber-500 font-bold rounded-3xl my-2;
-    padding: 5px 15px;
+  /* Estilos para el autocompletado en Firefox */
+  input:-moz-autofill,
+  textarea:-moz-autofill,
+  select:-moz-autofill {
+    -moz-box-shadow: 0 0 0px 1000px #1e293b inset;
+    -moz-text-fill-color: #f59e0b;
+    @apply text-amber-500;
+  }
+
+  /* Estilos para el autocompletado en Microsoft Edge */
+  input:-ms-autofill,
+  textarea:-ms-autofill,
+  select:-ms-autofill {
+    -ms-box-shadow: 0 0 0px 1000px #1e293b inset;
+    -ms-text-fill-color: #f59e0b;
+    @apply text-amber-500;
+  }
+  .form-input:-webkit-autofill,
+  .form-input:-moz-autofill,
+  .form-input:-ms-input-placeholder {
+    /* Agrega las clases de Tailwind CSS para personalizar los estilos */
+    @apply bg-slate-800 text-amber-500; /* Ejemplo de clases de Tailwind CSS */
+  }
+
+  .li-item{
+    @apply h-10;
+  }
+  
+  .item {
+    @apply relative grid h-full px-4 text-xl font-semibold -bottom-3 rounded-t-xl;
+  }
+
+  .item-active{
+    @apply after:absolute after:bottom-0 after:bg-amber-500 after:h-2 after:w-5/6 after:justify-self-center after:rounded-lg;
+  }
+
+  .button {
+    @apply mx-3 my-2 font-bold align-middle border-2 h-9 bg-amber-500 text-slate-800 border-slate-800;
+    @apply hover:bg-slate-800 hover:border-2 hover:border-amber-500 hover:text-amber-500 rounded-xl;
+    padding: 3px 15px;
+  }
+
+  .form-control {
+    @apply focus:border-amber-500 focus:shadow-sm focus:shadow-amber-500 focus:bg-slate-800 focus:text-amber-500 bg-slate-800 text-amber-500;
+  }
+
+  .my-form {
+    @apply flex flex-col p-5 rounded-xl bg-slate-800 text-amber-500 !important;
+  }
+
+  .form-title {
+    @apply m-1 text-2xl text-center text-black text-amber-100;
+  }
+
+  hr {
+    @apply h-1 mb-3 opacity-100;
   }
 }
